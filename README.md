@@ -13,7 +13,7 @@ Essas foram as tecnologias utilizadas neste projeto!
 
 - [Node.JS](https://nodejs.org/en/)
 - [Express](https://expressjs.com/pt-br/)
-- [Docer](https://www.docker.com/)
+- [Docker](https://www.docker.com/)
 - [Postgres](https://www.postgresql.org/)
 
 <br>
