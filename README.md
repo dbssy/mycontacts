@@ -11,10 +11,23 @@ Gerencie a sua lista de contatos através da plataforma, onde é possível você
 ## 👨‍💻 Tecnologias
 Essas foram as tecnologias utilizadas neste projeto!
 
+<br>
+
+Backend:
 - [Node.JS](https://nodejs.org/en/)
 - [Express](https://expressjs.com/pt-br/)
+- [Express Async Errors](https://www.npmjs.com/package/express-async-errors)
 - [Docker](https://www.docker.com/)
 - [Postgres](https://www.postgresql.org/)
+
+<br>
+
+Frontend:
+- [React](https://reactjs.org/)
+- [React DOM](https://reactjs.org/docs/react-dom.html)
+- [React Router DOM](https://reactrouter.com/en/main)
+- [Styled Components](https://styled-components.com/)
+- [Vite](https://vitejs.dev/)
 
 <br>
 
