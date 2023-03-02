@@ -7,7 +7,6 @@ export default styled.select`
   border-radius: 0.25rem;
   width: 100%;
   height: 3.125rem;
-  margin-top: 1rem;
   padding: 0 1rem;
   outline: 0;
   transition: border-color 0.2s ease-in;

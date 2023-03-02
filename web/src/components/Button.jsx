@@ -8,7 +8,6 @@ export default styled.button`
   border-radius: 0.25rem;
   width: 100%;
   height: 3.125rem;
-  margin-top: 1.5rem;
   font-weight: bold;
   transition: background 0.2s ease-in;
 

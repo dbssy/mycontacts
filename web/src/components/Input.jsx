@@ -14,8 +14,4 @@ export default styled.input`
   &:focus {
     border: 2px solid ${({ theme }) => theme.colors.primary[500]};
   }
-
-  & + & {
-    margin-top: 1rem;
-  }
 `;
