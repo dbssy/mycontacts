@@ -17,10 +17,11 @@ export default function ContactForm({ buttonLabel }) {
         />
       </FormGroup>
 
-      <FormGroup>
+      <FormGroup error="O formato do e-mail é inválido.">
         <Input
           type="email"
           placeholder="E-mail"
+          error
         />
       </FormGroup>
 
