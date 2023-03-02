@@ -5,10 +5,15 @@ import { Card, Container, Header, InputSearchContainer, ListContainer } from './
 import Arrow from '../../assets/icons/arrow.svg';
 import Edit from '../../assets/icons/edit.svg';
 import Trash from '../../assets/icons/trash.svg';
+import Modal from '../../components/Modal';
 
 export default function Home() {
   return (
     <Container>
+      <Modal
+        danger
+      />
+
       <InputSearchContainer>
         <input type="text" placeholder="Pesquise pelo nome..." />
       </InputSearchContainer>
