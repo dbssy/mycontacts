@@ -8,7 +8,7 @@ export default createGlobalStyle`
   }
 
   body {
-    background: ${({ theme }) => theme.backgroundColor};
+    background: ${({ theme }) => theme.colors.background};
     -webkit-font-smoothing: antialiased;
   }
 
@@ -18,5 +18,10 @@ export default createGlobalStyle`
 
   button {
     cursor: pointer;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
   }
 `;

@@ -5,7 +5,8 @@ import defaultTheme from '../../styles/themes/default';
 
 import { Container } from './styles';
 
-import { Header } from '../Header';
+import Header from '../Header';
+import ContactsList from '../ContactsList';
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
 
       <Container>
         <Header />
+        <ContactsList />
       </Container>
     </ThemeProvider>
   );

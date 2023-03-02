@@ -16,7 +16,7 @@ export const InputSearchContainer = styled.div`
   margin-top: 3rem;
 
   input {
-    background: #fff;
+    background: ${({ theme }) => theme.colors.white};
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.04);
     border: none;
     border-radius: 1.5rem;
@@ -26,7 +26,7 @@ export const InputSearchContainer = styled.div`
     outline: 0;
 
     &::placeholder {
-      color: #BCBCBC;
+      color: ${({ theme }) => theme.colors.gray[200]};
     }
   }
 `;
