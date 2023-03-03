@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import { ButtonContainer, Form } from './styles';
 
+import isEmailValid from '../../utils/isEmailValid';
+
 import FormGroup from '../FormGroup';
 import Input from '../Input';
 import Select from '../Select';
@@ -13,6 +15,39 @@ export default function ContactForm({ buttonLabel }) {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [category, setCategory] = useState('');
+  const [errors, setErrors] = useState([]);
+
+  function handleNameChange(event) {
+    setName(event.target.value);
+
+    if (!event.target.value) {
+      setErrors((prevState) => [
+        ...prevState,
+        { field: 'name', message: 'Nome é obrigatório.' },
+      ]);
+    } else {
+      setErrors((prevState) => prevState.filter((error) => error.field !== 'name'));
+    }
+  }
+
+  function handleEmailChange(event) {
+    setEmail(event.target.value);
+
+    if (event.target.value && !isEmailValid(event.target.value)) {
+      const errorAlreadyExists = errors.find((error) => error.field === 'email');
+
+      if (errorAlreadyExists) {
+        return;
+      }
+
+      setErrors((prevState) => [
+        ...prevState,
+        { field: 'email', message: 'O formato do e-mail é inválido.' },
+      ]);
+    } else {
+      setErrors((prevState) => prevState.filter((error) => error.field !== 'email'));
+    }
+  }
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -25,7 +60,7 @@ export default function ContactForm({ buttonLabel }) {
           type="text"
           placeholder="Nome"
           value={name}
-          onChange={(event) => setName(event.target.value)}
+          onChange={handleNameChange}
         />
       </FormGroup>
 
@@ -34,7 +69,7 @@ export default function ContactForm({ buttonLabel }) {
           type="email"
           placeholder="E-mail"
           value={email}
-          onChange={(event) => setEmail(event.target.value)}
+          onChange={handleEmailChange}
         />
       </FormGroup>
 
