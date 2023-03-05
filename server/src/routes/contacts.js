@@ -4,7 +4,7 @@ const router = Router();
 
 const ContactController = require('../app/controllers/ContactController');
 
-router.get('/', ContactController.index);
+router.get('/contacts', ContactController.index);
 router.get('/contacts/:id', ContactController.show);
 
 router.post('/contacts', ContactController.store);
