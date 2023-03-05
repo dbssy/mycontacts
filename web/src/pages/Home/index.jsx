@@ -7,8 +7,8 @@ import Arrow from '../../assets/icons/arrow.svg';
 import Edit from '../../assets/icons/edit.svg';
 import Trash from '../../assets/icons/trash.svg';
 
+import ContactsService from '../../services/ContactsService';
 import formatPhone from '../../utils/formatPhone';
-import delay from '../../utils/delay';
 
 import Loader from '../../components/Loader';
 
@@ -27,11 +27,8 @@ export default function Home() {
       try {
         setIsLoading(true);
 
-        const response = await fetch(`http://localhost:3333/contacts?orderBy=${orderBy}`);
-        await delay(500);
-
-        const json = await response.json();
-        setContacts(json);
+        const contactsList = await ContactsService.listContacts(orderBy);
+        setContacts(contactsList);
       } catch (error) {
         console.log(error);
       } finally {
