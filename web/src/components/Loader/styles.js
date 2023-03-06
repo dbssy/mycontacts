@@ -40,7 +40,7 @@ export const Overlay = styled.div`
   height: 100%;
   top: 0;
   left: 0;
-  position: absolute;
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;

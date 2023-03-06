@@ -18,7 +18,7 @@ export const InputSearchContainer = styled.div`
     outline: 0;
 
     &::placeholder {
-      color: ${({ theme }) => theme.colors.gray[200]};
+      color: ${({ theme }) => theme.colors.gray[300]};
     }
   }
 `;
@@ -26,8 +26,10 @@ export const InputSearchContainer = styled.div`
 export const Header = styled.header`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: ${({ hasError }) => hasError ? 'flex-end' : 'space-between'};
   margin-top: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid ${({ theme }) => theme.colors.gray[100]};
 
   strong {
     color: ${({ theme }) => theme.colors.gray[900]};
@@ -45,6 +47,23 @@ export const Header = styled.header`
     &:hover {
       background: ${({ theme }) => theme.colors.primary[500]};
       color: ${({ theme }) => theme.colors.white};
+    }
+  }
+`;
+
+export const ErrorContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+
+  .details {
+    margin-left: 1.5rem;
+
+    strong {
+      color: ${({ theme }) => theme.colors.danger[500]};
+      font-size: 1.375rem;
+      margin-bottom: 0.5rem;
+      display: block;
     }
   }
 `;
@@ -104,7 +123,7 @@ export const Card = styled.div`
     span {
       display: block;
       font-size: 0.875rem;
-      color: ${({ theme }) => theme.colors.gray[200]};
+      color: ${({ theme }) => theme.colors.gray[300]};
     }
   }
 

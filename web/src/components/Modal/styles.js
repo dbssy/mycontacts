@@ -43,7 +43,7 @@ export const Footer = styled.footer`
 
   .cancel-button {
     background: transparent;
-    color: ${({ theme }) => theme.colors.gray[200]};
+    color: ${({ theme }) => theme.colors.gray[300]};
     border: none;
     margin-right: 0.5rem;
   }

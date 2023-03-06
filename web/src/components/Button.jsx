@@ -20,7 +20,7 @@ export default styled.button`
   }
 
   &[disabled] {
-    background: ${({ theme }) => theme.colors.gray[100]};
+    background: ${({ theme }) => theme.colors.gray[200]};
     cursor: not-allowed;
   }
 
