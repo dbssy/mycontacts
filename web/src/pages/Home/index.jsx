@@ -8,7 +8,8 @@ import {
   ErrorContainer,
   Header,
   InputSearchContainer,
-  ListHeader
+  ListHeader,
+  SearchNotFoundContainer
 } from './styles';
 
 import arrow from '../../assets/icons/arrow.svg';
@@ -16,6 +17,7 @@ import edit from '../../assets/icons/edit.svg';
 import trash from '../../assets/icons/trash.svg';
 import sad from '../../assets/images/sad.svg';
 import emptyBox from '../../assets/images/empty-box.svg';
+import magnifierQuestion from '../../assets/images/magnifier-question.svg';
 
 import ContactsService from '../../services/ContactsService';
 import formatPhone from '../../utils/formatPhone';
@@ -128,6 +130,16 @@ export default function Home() {
                 cadastrar o seu primeiro!
               </p>
             </EmptyListContainer>
+          )}
+
+          {(contacts.length > 0 && filteredContacts.length < 1) && (
+            <SearchNotFoundContainer>
+              <img src={magnifierQuestion} alt="Magnifier Question" />
+
+              <span>
+                Nenhum resultado foi encontrado para <strong>“{searchTerm}”</strong>.
+              </span>
+            </SearchNotFoundContainer>
           )}
 
           {filteredContacts.length > 0 && (

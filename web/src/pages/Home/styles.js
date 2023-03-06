@@ -85,6 +85,18 @@ export const EmptyListContainer = styled.div`
   }
 `;
 
+export const SearchNotFoundContainer = styled.div`
+  display: flex;
+  align-items: flex-start;
+  margin-top: 1rem;
+
+  span {
+    color: ${({ theme }) => theme.colors.gray[300]};
+    margin-left: 1.5rem;
+    word-break: break-word;
+  }
+`;
+
 export const ListHeader = styled.header`
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
