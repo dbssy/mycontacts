@@ -4,16 +4,18 @@ import { Link } from 'react-router-dom';
 import {
   Card,
   Container,
+  EmptyListContainer,
   ErrorContainer,
   Header,
   InputSearchContainer,
   ListHeader
 } from './styles';
 
-import Arrow from '../../assets/icons/arrow.svg';
-import Edit from '../../assets/icons/edit.svg';
-import Trash from '../../assets/icons/trash.svg';
-import Sad from '../../assets/images/sad.svg';
+import arrow from '../../assets/icons/arrow.svg';
+import edit from '../../assets/icons/edit.svg';
+import trash from '../../assets/icons/trash.svg';
+import sad from '../../assets/images/sad.svg';
+import emptyBox from '../../assets/images/empty-box.svg';
 
 import ContactsService from '../../services/ContactsService';
 import formatPhone from '../../utils/formatPhone';
@@ -67,17 +69,29 @@ export default function Home() {
     <Container>
       <Loader isLoading={isLoading} />
 
-      <InputSearchContainer>
-        <input
-          type="text"
-          placeholder="Pesquise pelo nome..."
-          value={searchTerm}
-          onChange={handleChangeSearchTerm}
-        />
-      </InputSearchContainer>
+      {contacts.length > 0 && (
+        <InputSearchContainer>
+          <input
+            type="text"
+            placeholder="Pesquise pelo nome..."
+            value={searchTerm}
+            onChange={handleChangeSearchTerm}
+          />
+        </InputSearchContainer>
+      )}
 
-      <Header hasError={hasError}>
-        {!hasError && (
+      <Header
+        justifyContent={
+          hasError
+            ? 'flex-end'
+            : (
+              contacts.length > 0
+                ? 'space-between'
+                : 'center'
+            )
+        }
+      >
+        {(!hasError && contacts.length > 0) && (
           <strong>
             {filteredContacts.length === 1 ? `${filteredContacts.length} contato` : `${filteredContacts.length} contatos`}
           </strong>
@@ -87,7 +101,7 @@ export default function Home() {
 
       {hasError && (
         <ErrorContainer>
-          <img src={Sad} alt="Sad" />
+          <img src={sad} alt="Sad" />
 
           <div className="details">
             <strong>Ocorreu um erro ao obter seus contatos!</strong>
@@ -104,11 +118,23 @@ export default function Home() {
 
       {!hasError && (
         <>
+          {(contacts.length < 1 && !isLoading) && (
+            <EmptyListContainer>
+              <img src={emptyBox} alt="Empty Box" />
+
+              <p>
+                Você ainda não tem nenhum contato cadastrado! <br />
+                Clique no botão <strong>“Novo contato”</strong> à cima para <br />
+                cadastrar o seu primeiro!
+              </p>
+            </EmptyListContainer>
+          )}
+
           {filteredContacts.length > 0 && (
             <ListHeader orderBy={orderBy}>
               <button type="button" onClick={handleToggleOrderBy}>
                 <span>Nome</span>
-                <img src={Arrow} alt="Arrow" />
+                <img src={arrow} alt="Arrow" />
               </button>
             </ListHeader>
           )}
@@ -127,11 +153,11 @@ export default function Home() {
 
               <div className="actions">
                 <Link to={`/edit/${contact.id}`}>
-                  <img src={Edit} alt="Edit" />
+                  <img src={edit} alt="Edit" />
                 </Link>
 
                 <button type="button">
-                  <img src={Trash} alt="Delete" />
+                  <img src={trash} alt="Delete" />
                 </button>
               </div>
             </Card>
