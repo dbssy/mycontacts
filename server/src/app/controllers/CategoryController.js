@@ -1,5 +1,7 @@
 const CategoriesRepository = require('../repositories/CategoriesRepository');
 
+const isValidUUID = require('../utils/isValidUUID');
+
 class ContactController {
   async index(request, response) {
     const { orderBy } = request.query;
@@ -9,6 +11,10 @@ class ContactController {
 
   async show(request, response) {
     const { id } = request.params;
+
+    if (!isValidUUID(id)) {
+      return response.status(400).json({ error: 'Invalid Category ID' });
+    }
 
     const category = await CategoriesRepository.findById(id);
 
@@ -34,13 +40,18 @@ class ContactController {
     const { id } = request.params;
     const { name } = request.body;
 
-    const categoryExists = await CategoriesRepository.findById(id);
-    if (!categoryExists) {
-      return response.status(404).json({ error: 'Category not found' });
+    if (!isValidUUID(id)) {
+      return response.status(400).json({ error: 'Invalid Category ID' });
     }
 
     if (!name) {
       return response.status(400).json({ error: 'Name is required' });
+    }
+
+    const categoryExists = await CategoriesRepository.findById(id);
+
+    if (!categoryExists) {
+      return response.status(404).json({ error: 'Category not found' });
     }
 
     const category = await CategoriesRepository.update(id, { name });
@@ -49,6 +60,10 @@ class ContactController {
 
   async delete(request, response) {
     const { id } = request.params;
+
+    if (!isValidUUID(id)) {
+      return response.status(400).json({ error: 'Invalid Category ID' });
+    }
 
     await CategoriesRepository.delete(id);
     return response.sendStatus(204);
