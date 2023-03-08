@@ -21,8 +21,8 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
 
-  strong {
-    margin-left: 0.5rem;
+  img {
+    margin-right: 0.5rem;
   }
 
   & + & {
