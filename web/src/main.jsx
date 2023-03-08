@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 
 import App from './App';
 
-import './lib/EventManager';
-
 ReactDOM.render(
   <React.StrictMode>
     <App />
