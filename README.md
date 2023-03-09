@@ -26,6 +26,7 @@ Frontend:
 - [React](https://reactjs.org/)
 - [React DOM](https://reactjs.org/docs/react-dom.html)
 - [React Router DOM](https://reactrouter.com/en/main)
+- [Prop Types](https://www.npmjs.com/package/prop-types)
 - [Styled Components](https://styled-components.com/)
 - [Vite](https://vitejs.dev/)
 
@@ -48,10 +49,8 @@ $ cd mycontacts
 
 Instale os pacotes pelo gerenciador de pacotes de sua preferência, dentro das respectivas pastas (server e web).
 ```bash
-# NPM
 $ npm install
 
-# Yarn
 $ yarn
 ```
 
@@ -76,10 +75,8 @@ $ docker ps
 
 Com todas as dependências instaladas e o docker rodando, acesse as respectivas pastas (server e web) e execute o comando abaixo para rodar a aplicação.
 ```bash
-# NPM
 $ npm run dev
 
-# Yarn
 $ yarn dev
 ```
 <br>
