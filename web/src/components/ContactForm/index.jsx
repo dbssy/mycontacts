@@ -35,9 +35,15 @@ const ContactForm = forwardRef(({ buttonLabel, onSubmit }, ref) => {
     setFieldsValues: (contact) => {
       setName(contact.name ?? '');
       setEmail(contact.email ?? '');
-      setPhone(formatPhone(contact.phone ?? ''));
+      setPhone(formatPhone(contact.phone) ?? '');
       setCategoryId(contact.category_id ?? '');
     },
+    resetFields: () => {
+      setName('');
+      setEmail('');
+      setPhone(formatPhone(''));
+      setCategoryId('');
+    }
   }), []);
 
   useEffect(() => {
@@ -85,10 +91,6 @@ const ContactForm = forwardRef(({ buttonLabel, onSubmit }, ref) => {
     await onSubmit({ name, email, phone, categoryId });
 
     setIsSubmitting(false);
-    setName('');
-    setEmail('');
-    setPhone('');
-    setCategoryId('');
   }
 
   return (
