@@ -23,6 +23,7 @@ import ContactsService from '../../services/ContactsService';
 import formatPhone from '../../utils/formatPhone';
 
 import Loader from '../../components/Loader';
+import Modal from '../../components/Modal';
 import Button from '../../components/Button';
 
 export default function Home() {
@@ -70,6 +71,16 @@ export default function Home() {
   return (
     <Container>
       <Loader isLoading={isLoading} />
+
+      <Modal
+        danger
+        title="Tem certeza que deseja remover o contato “João Debussy”?"
+        confirmLabel="Deletar"
+        onCancel={() => alert('oi')}
+        onConfirm={() => alert('oi')}
+      >
+        <p>Esta ação não poderá ser desfeita!</p>
+      </Modal>
 
       {contacts.length > 0 && (
         <InputSearchContainer>
