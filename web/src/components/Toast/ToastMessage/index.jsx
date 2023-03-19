@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { memo, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { Container } from './styles';
@@ -6,7 +6,7 @@ import { Container } from './styles';
 import successIcon from '../../../assets/icons/success.svg';
 import errorIcon from '../../../assets/icons/error.svg';
 
-export default function ToastMessage({
+function ToastMessage({
   message,
   isLeaving,
   animatedRef,
@@ -53,3 +53,5 @@ ToastMessage.propTypes = {
   animatedRef: PropTypes.shape().isRequired,
   onRemoveMessage: PropTypes.func.isRequired,
 };
+
+export default memo(ToastMessage);
