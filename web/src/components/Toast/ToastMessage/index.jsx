@@ -6,7 +6,7 @@ import { Container } from './styles';
 import successIcon from '../../../assets/icons/success.svg';
 import errorIcon from '../../../assets/icons/error.svg';
 
-export default function ToastMessage({ message, onRemoveMessage }) {
+export default function ToastMessage({ message, isLeaving, onRemoveMessage }) {
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       onRemoveMessage(message.id);
@@ -23,10 +23,11 @@ export default function ToastMessage({ message, onRemoveMessage }) {
 
   return (
     <Container
-      type={message.type}
-      onClick={handleRemoveToast}
       tabIndex={0}
       role="button"
+      type={message.type}
+      isLeaving={isLeaving}
+      onClick={handleRemoveToast}
     >
       {message.type === 'success' && <img src={successIcon} alt="Check" />}
       {message.type === 'danger' && <img src={errorIcon} alt="Error" />}
@@ -42,5 +43,6 @@ ToastMessage.propTypes = {
     type: PropTypes.oneOf(['default', 'success', 'danger']),
     duration: PropTypes.number,
   }).isRequired,
+  isLeaving: PropTypes.bool.isRequired,
   onRemoveMessage: PropTypes.func.isRequired,
 };
