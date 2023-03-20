@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -9,7 +10,7 @@ import trash from '../../../../assets/icons/trash.svg';
 
 import formatPhone from '../../../../utils/formatPhone';
 
-export default function ContactsList({
+function ContactsList({
   filteredContacts,
   orderBy,
   onToggleOrderBy,
@@ -19,8 +20,7 @@ export default function ContactsList({
     <>
       {filteredContacts.length > 0 && (
         <ListHeader orderBy={orderBy}>
-          <button type="button" onClick={onToggleOrderBy}
-          >
+          <button type="button" onClick={onToggleOrderBy}>
             <span>Nome</span>
             <img src={arrow} alt="Arrow" />
           </button>
@@ -69,3 +69,5 @@ ContactsList.propTypes = {
   onToggleOrderBy: PropTypes.func.isRequired,
   onDeleteContact: PropTypes.func.isRequired,
 };
+
+export default memo(ContactsList);
