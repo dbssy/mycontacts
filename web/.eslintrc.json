@@ -4,8 +4,9 @@
     "es2021": true
   },
   "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended"
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "airbnb"
   ],
   "parserOptions": {
     "ecmaFeatures": {
@@ -15,32 +16,22 @@
     "sourceType": "module"
   },
   "plugins": [
-    "react"
+    "react",
+    "react-hooks"
   ],
   "rules": {
     "react/react-in-jsx-scope": "off",
     "react/display-name": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "class-methods-use-this": "off",
+    "import/prefer-default-export": "off",
+    "import/no-extraneous-dependencies": "off",
     "no-empty": [
       "error",
       {
         "allowEmptyCatch": true
       }
-    ],
-    "indent": [
-      "error",
-      2
-    ],
-    "linebreak-style": [
-      "error",
-      "unix"
-    ],
-    "quotes": [
-      "error",
-      "single"
-    ],
-    "semi": [
-      "error",
-      "always"
     ]
   }
 }

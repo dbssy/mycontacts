@@ -38,7 +38,7 @@ export default function useEditContact() {
     }
 
     loadContact();
-  }, [id, history, useSafeAsyncAction]);
+  }, [id, history, safeAsyncAction]);
 
   async function handleSubmit(contact) {
     try {

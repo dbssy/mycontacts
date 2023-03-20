@@ -1,4 +1,6 @@
-import { createRef, useCallback, useEffect, useRef, useState } from 'react';
+import {
+  createRef, useCallback, useEffect, useRef, useState,
+} from 'react';
 
 export default function useAnimatedList() {
   const [items, setItems] = useState([]);
@@ -47,7 +49,7 @@ export default function useAnimatedList() {
   }, []);
 
   const handleRemoveItem = useCallback((id) => {
-    setPendingRemovalItemsId(prevState => [...prevState, id]);
+    setPendingRemovalItemsId((prevState) => [...prevState, id]);
   }, []);
 
   const getAnimatedRef = useCallback((itemId) => {

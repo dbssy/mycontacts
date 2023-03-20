@@ -21,7 +21,7 @@ export default function useContactForm(onSubmit, ref) {
     errors,
     setError,
     removeError,
-    getErrorMessageByFieldName
+    getErrorMessageByFieldName,
   } = useErrors();
 
   const isFormValid = (name && errors.length === 0);
@@ -38,7 +38,7 @@ export default function useContactForm(onSubmit, ref) {
       setEmail('');
       setPhone(formatPhone(''));
       setCategoryId('');
-    }
+    },
   }), []);
 
   useEffect(() => {
@@ -83,7 +83,9 @@ export default function useContactForm(onSubmit, ref) {
 
     setIsSubmitting(true);
 
-    await onSubmit({ name, email, phone, categoryId });
+    await onSubmit({
+      name, email, phone, categoryId,
+    });
 
     setIsSubmitting(false);
   }

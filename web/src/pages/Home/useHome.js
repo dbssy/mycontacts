@@ -1,4 +1,6 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import {
+  useCallback, useEffect, useMemo, useState,
+} from 'react';
 
 import ContactsService from '../../services/ContactsService';
 import toast from '../../utils/toast';
@@ -38,7 +40,7 @@ export default function useHome() {
   }, [loadContacts]);
 
   function handleToggleOrderBy() {
-    setOrderBy((prevState) => prevState === 'asc' ? 'desc' : 'asc');
+    setOrderBy((prevState) => (prevState === 'asc' ? 'desc' : 'asc'));
   }
 
   function handleChangeSearchTerm(event) {
@@ -99,6 +101,6 @@ export default function useHome() {
     handleTryAgain,
     handleDeleteContact,
     handleCloseDeleteModal,
-    handleConfirmDeleteContact
+    handleConfirmDeleteContact,
   };
 }
