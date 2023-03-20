@@ -22,7 +22,9 @@ class ContactsRepository {
     return row;
   }
 
-  async create({ name, email, phone, category_id }) {
+  async create({
+    name, email, phone, category_id,
+  }) {
     const [row] = await db.query(`
       INSERT INTO contacts(name, email, phone, category_id)
       VALUES($1, $2, $3, $4)
@@ -32,7 +34,9 @@ class ContactsRepository {
     return row;
   }
 
-  async update(id, { name, email, phone, category_id }) {
+  async update(id, {
+    name, email, phone, category_id,
+  }) {
     const [row] = await db.query(`
       UPDATE contacts
       SET name = $1, email = $2, phone = $3, category_id = $4
