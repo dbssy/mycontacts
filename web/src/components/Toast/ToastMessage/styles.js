@@ -47,7 +47,7 @@ export const Container = styled.div`
   cursor: pointer;
   animation: ${messageIn} 0.3s;
 
-  ${({ isLeaving }) => isLeaving && css`animation: ${messageOut} 0.2s`};
+  ${({ isLeaving }) => isLeaving && css`animation: ${messageOut} 0.2s forwards`};
 
   img {
     margin-right: 0.5rem;
