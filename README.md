@@ -47,11 +47,9 @@ $ cd mycontacts
 
 <br>
 
-Instale os pacotes pelo gerenciador de pacotes de sua preferência, dentro das respectivas pastas (server e web).
+Instale os pacotes necessários para rodar o projeto, que estão dentro de suas respectivas pastas (server e web).
 ```bash
 $ npm install
-
-$ yarn
 ```
 
 <br>
@@ -76,8 +74,6 @@ $ docker ps
 Com todas as dependências instaladas e o docker rodando, acesse as respectivas pastas (server e web) e execute o comando abaixo para rodar a aplicação.
 ```bash
 $ npm run dev
-
-$ yarn dev
 ```
 <br>
 
