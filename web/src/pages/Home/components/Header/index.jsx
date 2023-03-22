@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -22,8 +23,7 @@ export default function Header({
         <strong>
           {qtyOfFilteredContacts === 1
             ? `${qtyOfFilteredContacts} contato`
-            : `${qtyOfFilteredContacts} contatos`
-          }
+            : `${qtyOfFilteredContacts} contatos`}
         </strong>
       )}
 
