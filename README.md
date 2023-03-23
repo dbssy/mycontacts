@@ -71,6 +71,26 @@ $ docker ps
 
 <br>
 
+Após colocar o container para rodar, você precisará criar o Banco de Dados e as tabelas manualmente.
+```bash
+# Acesse o banco de dados
+$ docker exec -it pg bash
+
+# Entre no usuário que você criou, no caso, criamos o root
+$ psql -U root
+
+# Para criar o banco de dados, cole a instrução abaixo
+$ CREATE DATABASE mycontacts;
+
+# Acesse o banco recém criado
+$ \c mycontacts
+
+# Dentro do arquivo schema.sql, você encontrará o restante das instruções 
+# para criar as tabelas necessárias da nossa aplicação
+```
+
+<br>
+
 Com todas as dependências instaladas e o docker rodando, acesse as respectivas pastas (server e web) e execute o comando abaixo para rodar a aplicação.
 ```bash
 $ npm run dev
